@@ -129,13 +129,14 @@ fn main() -> ! {
         for (i, led) in leds.iter_mut().enumerate() {
             // An offset to give 3 consecutive LEDs a different color:
             let hue_offs = match i % 25 {
-                1 => 0.2,
-                2 => 0.2,
-                3 => 0.2,
-                4 => 0.2,
-                5 => 0.2,
-                6 => 0.2,
-                _ => 0.5,
+                0 => 0.5,
+                1 => 0.1,
+                2 => 0.1,
+                3 => 0.1,
+                4 => 0.1,
+                5 => 0.1,
+                6 => 0.1,
+                _ => 0.3,
             };
 
             let sin_11 = sin((t + hue_offs) * 2.0 * core::f32::consts::PI);

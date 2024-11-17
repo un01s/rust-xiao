@@ -33,7 +33,10 @@ This is an example from ```rp-rs/rp-hal-boards/rp-pico```. Use the Cargo.toml fr
 
 ## reference;
 
+* [smart_led_effects crate page](https://docs.rs/crate/smart_led_effects/latest)study it here. sRGB vectors for all the pixels.
+
 * [neopixel-ws2812-led-pico-fading-rs](https://github.com/tracyspacy/neopixel-ws2812-led-pico-fading-rs) this rust code is built for rpi-pico
 
 * [st7567 driver in rust](https://github.com/tracyspacy/st7567_rs)
 
+* [rpi-ws2812-rs](https://github.com/bitbrain-za/rpi_ws2812-rs) SPI for LED on RPI
