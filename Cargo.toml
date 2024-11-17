@@ -18,3 +18,6 @@ rp-pico = "0.9"
 ws2812-pio = "0.8.0"
 smart-leds = "0.3.0"
 micromath = "2.1.0"
+
+# add smart_led_effects
+#smart_led_effects = "0.1.7"

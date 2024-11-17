@@ -1,6 +1,8 @@
 //! # 1st example code GPIO Blink
 //! # 2nd LED fading effect 
 //! # 3rd WS2812 LED from pico XIAO
+//! # 4th try smart led effects
+//!
 
 #![no_std]
 #![no_main]
@@ -35,6 +37,13 @@ use smart_leds::{brightness, SmartLedsWrite, RGB8};
 
 // Import the actual crate to handle the Ws2812 protocol:
 use ws2812_pio::Ws2812;
+
+/*
+use smart_led_effects::{
+    strip::{self, EffectIterator},
+    Srgb,
+};
+*/
 
 // Currently 3 consecutive LEDs are driven by this example
 // to keep the power draw compatible with USB:
@@ -104,6 +113,9 @@ fn main() -> ! {
     let mut leds: [RGB8; STRIP_LEN] = [(0, 0, 0).into(); STRIP_LEN];
     let mut t = 0.0;
 
+    // example code has 3 LEDs
+    // now we are using 25 LEDs in snawflake
+
     // Bring down the overall brightness of the strip to not blow
     // the USB power supply: every LED draws ~60mA, RGB means 3 LEDs per
     // ws2812 LED, for 3 LEDs that would be: 3 * 3 * 60mA, which is
@@ -116,10 +128,14 @@ fn main() -> ! {
     loop {
         for (i, led) in leds.iter_mut().enumerate() {
             // An offset to give 3 consecutive LEDs a different color:
-            let hue_offs = match i % 3 {
-                1 => 0.25,
-                2 => 0.5,
-                _ => 0.0,
+            let hue_offs = match i % 25 {
+                1 => 0.2,
+                2 => 0.2,
+                3 => 0.2,
+                4 => 0.2,
+                5 => 0.2,
+                6 => 0.2,
+                _ => 0.5,
             };
 
             let sin_11 = sin((t + hue_offs) * 2.0 * core::f32::consts::PI);
