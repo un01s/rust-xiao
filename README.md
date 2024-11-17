@@ -21,3 +21,11 @@ The code is blinky.rs from [rp2040-hal-examples](https://github.com/rp-rs/rp-hal
 
 Search [crates.io](https://crates.io/) to get the latest version.
 
+## [fading effect](https://github.com/tracyspacy/neopixel-ws2812-led-pico-fading-rs)
+
+the code has one main color for all LEDs. This color will fade. Then it changes to another color, and fade again.
+
+## reference;
+
+* [neopixel-ws2812-led-pico-fading-rs](https://github.com/tracyspacy/neopixel-ws2812-led-pico-fading-rs) this rust code is built for rpi-pico
+
