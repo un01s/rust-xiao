@@ -82,12 +82,12 @@ fn main() -> ! {
     );
 
     let colors_array: [RGB8; 6] = [
-        (165, 0, 109).into(),
+        (250, 0, 10).into(),
         (84, 3, 117).into(),
         (20, 111, 210).into(),
         (68, 218, 0).into(),
         (219, 224, 0).into(),
-        (243, 35, 35).into(),
+        (0, 250, 15).into(),
     ];
     let mut counter: usize = 0;
     let mut color_index = 0;
