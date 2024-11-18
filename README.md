@@ -31,6 +31,18 @@ the code has one main color for all LEDs. This color will fade. Then it changes 
 
 This is an example from ```rp-rs/rp-hal-boards/rp-pico```. Use the Cargo.toml from last project of fading LEDs. And add panic-halt as a dependency. Works fine for snowflake which has 25 LEDs. 
 
+## 4. effects
+
+[srgb crate](https://docs.rs/srgb/latest/srgb/) has some example code to use it. Check it out because it is used in ```smart_led_effects```. 
+
+Another interesting crate is [palette](https://docs.rs/palette/latest/palette/). However, it is used for desktop. Not sure if it could be used for embedded systems.
+
+* [srgb v0.3.3](https://crates.io/crates/srgb)
+* [blend_srgb v0.1.1](https://docs.rs/blend-srgb/latest/blend_srgb/) 
+* [fast-srgb8 v1.0.0](https://crates.io/crates/fast-srgb8)
+
+[Another example for 8x8 ws2812b arrary](https://github.com/9names/rp2040_rust_playground/blob/main/ws2812_8x8/src/main.rs), check it out.
+
 ## reference;
 
 * [smart_led_effects crate page](https://docs.rs/crate/smart_led_effects/latest)study it here. sRGB vectors for all the pixels.
