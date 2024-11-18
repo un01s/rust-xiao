@@ -43,6 +43,23 @@ Another interesting crate is [palette](https://docs.rs/palette/latest/palette/).
 
 [Another example for 8x8 ws2812b arrary](https://github.com/9names/rp2040_rust_playground/blob/main/ws2812_8x8/src/main.rs), check it out.
 
+## notes on the crates
+
+* [ws2812-pio](https://crates.io/crates/ws2812-pio): Driver for WS2812 LED using RP2024 PIO peripheral. This crate refers to [rp-hal](https://github.com/rp-rs/rp-hal) for examples.
+
+* [trait smart_leds_trait::SmartLedsWrite](https://docs.rs/smart-leds-trait/0.2.1/smart_leds_trait/trait.SmartLedsWrite.html)
+
+```
+fn write<T, I>(&mut self, iterator: T) -> Result<(), Self::Error>
+where
+    T: Iterator<Item = I>,
+    I: Into<Self::Color>, 
+```
+
+* [smart-leds](https://github.com/smart-leds-rs/smart-leds) is another crate.
+
+* [smart-led-effects v0.1.7](https://docs.rs/smart_led_effects/latest/smart_led_effects/)
+
 ## reference;
 
 * [smart_led_effects crate page](https://docs.rs/crate/smart_led_effects/latest)study it here. sRGB vectors for all the pixels.
