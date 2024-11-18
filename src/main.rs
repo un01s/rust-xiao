@@ -7,6 +7,8 @@
 #![no_std]
 #![no_main]
 
+#![allow(unused_variables)]
+
 // The macro for our start-up function
 use rp_pico::entry;
 
@@ -37,13 +39,6 @@ use smart_leds::{brightness, SmartLedsWrite, RGB8};
 
 // Import the actual crate to handle the Ws2812 protocol:
 use ws2812_pio::Ws2812;
-
-/*
-use smart_led_effects::{
-    strip::{self, EffectIterator},
-    Srgb,
-};
-*/
 
 // Currently 3 consecutive LEDs are driven by this example
 // to keep the power draw compatible with USB:
@@ -101,8 +96,6 @@ fn main() -> ! {
 
     // Instanciate a Ws2812 LED strip:
     let mut ws = Ws2812::new(
-        // Use pin 6 on the Raspberry Pi Pico (which is GPIO4 of the rp2040 chip)
-        // for the LED data output:
         pins.gpio27.into_function(),
         &mut pio,
         sm0,
@@ -129,14 +122,20 @@ fn main() -> ! {
         for (i, led) in leds.iter_mut().enumerate() {
             // An offset to give 3 consecutive LEDs a different color:
             let hue_offs = match i % 25 {
-                0 => 0.5,
+                0 => 0.0,
                 1 => 0.1,
                 2 => 0.1,
                 3 => 0.1,
                 4 => 0.1,
                 5 => 0.1,
                 6 => 0.1,
-                _ => 0.3,
+                7 => 0.2,
+                8 => 0.2,
+                9 => 0.2,
+                10 => 0.2,
+                11 => 0.2,
+                12 => 0.2,
+                _ => 0.25,
             };
 
             let sin_11 = sin((t + hue_offs) * 2.0 * core::f32::consts::PI);
