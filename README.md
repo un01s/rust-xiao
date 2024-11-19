@@ -35,7 +35,7 @@ This is an example from ```rp-rs/rp-hal-boards/rp-pico```. Use the Cargo.toml fr
 
 [srgb crate](https://docs.rs/srgb/latest/srgb/) has some example code to use it. Check it out because it is used in ```smart_led_effects```. 
 
-Another interesting crate is [palette](https://docs.rs/palette/latest/palette/). However, it is used for desktop. Not sure if it could be used for embedded systems.
+Another interesting crate is [palette](https://docs.rs/palette/latest/palette/). Not sure if it could be used for embedded systems.
 
 * [srgb v0.3.3](https://crates.io/crates/srgb)
 * [blend_srgb v0.1.1](https://docs.rs/blend-srgb/latest/blend_srgb/) 
@@ -59,6 +59,8 @@ where
 * [smart-leds](https://github.com/smart-leds-rs/smart-leds) is another crate.
 
 * [smart-led-effects v0.1.7](https://docs.rs/smart_led_effects/latest/smart_led_effects/)
+
+* [spatial LED](https://github.com/davjcosby/sled/) std
 
 ## reference;
 
