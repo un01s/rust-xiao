@@ -62,6 +62,8 @@ where
 
 * [spatial LED](https://github.com/davjcosby/sled/) std
 
+* [rust stm32f411](https://github.com/blaz-r/STM32F411-rust-neopixel/)
+
 ## snowflake LED numbering
 
 The center is the start, index of 0. Then the inner circle is from 1 to 6.
