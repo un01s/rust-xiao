@@ -60,6 +60,25 @@ where
 
 * [smart-led-effects v0.1.7](https://docs.rs/smart_led_effects/latest/smart_led_effects/)
 
+* snowflake LED numbering
+
+The center is the start, index of 0. Then the inner circle is from 1 to 6.
+
+The 7th goes to the furthest, then goes down its branch. From the outer to the inner, from 7 to 9. Other branches follows the same pattern. 
+
+So the center is LED0. the inner circle is LED1 to LED6.
+The furthest circle is LED7, LED10, LED13, LED16, LED19, and LED22.
+The mid in branches is LED8, LED11, LED14, LED17, LED20, and LED23.
+The nearest in branches is LED9, LED12, LED15, LED18, LED21, and LED24.
+
+| circles | LEDs |
+| ------- | ---- |
+| 0 (center) | LED0 |
+| 1 | LED1 ~ LED6 |
+| 2 | LED9, LED12, LED15, LED18, LED21, LED24 |
+| 3 | LED8, LED11, LED14, LED17, LED20, LED23 |
+| 4 | LED7, LED10, LED13, LED16, LED19, LED22 |
+
 * [spatial LED](https://github.com/davjcosby/sled/) std
 
 ## reference;
