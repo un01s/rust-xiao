@@ -118,7 +118,7 @@ fn main() -> ! {
     );
 
     let mut leds: [RGB8; STRIP_LEN] = [(0, 0, 0).into(); STRIP_LEN];
-    let mut t = 0.0;
+    let mut t: f32 = 0.0;
 
     // example code has 3 LEDs
     // now we are using 25 LEDs in snawflake
@@ -144,11 +144,11 @@ fn main() -> ! {
       func();
     }
 */
-/*    
-    let mut pattern1 = |&mut leds, &mut t| -> i32 {
+    
+    let pattern1 = || -> i32 {
       for (i, led) in leds.iter_mut().enumerate() {
         // An offset to give 3 consecutive LEDs a different color:
-        let hue_offs = match i % 25 {
+        let hue_offs: f32 = match i % 25 {
           0 => 0.0,
           1 => 0.1,
           2 => 0.1,
@@ -180,7 +180,7 @@ fn main() -> ! {
       let n = 0;
       n
     };
-*/ 
+ 
     loop {
         
         for (i, led) in leds.iter_mut().enumerate() {
@@ -214,7 +214,7 @@ fn main() -> ! {
             *led = rgb.into();
         }
         
-        //pattern1(1);
+        //pattern1();
 
         // Here the magic happens and the `leds` buffer is written to the
         // ws2812 LEDs:
