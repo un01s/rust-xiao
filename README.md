@@ -83,6 +83,15 @@ The nearest in branches is LED9, LED12, LED15, LED18, LED21, and LED24.
 | 3 | LED8, LED11, LED14, LED17, LED20, LED23 |
 | 4 | LED7, LED10, LED13, LED16, LED19, LED22 |
 
+## [non_std](https://docs.rs/crate/non_std/0.1.4)
+
+there is one ```non_std``` crate available.
+
+```
+$ cargo add non_std
+$ cargo remove non_std
+```
+
 ## reference;
 
 * [smart_led_effects crate page](https://docs.rs/crate/smart_led_effects/latest)study it here. sRGB vectors for all the pixels.
