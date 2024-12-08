@@ -9,6 +9,12 @@
 
 #![allow(unused_variables)]
 
+//#[cfg(test)]
+//#[macro_use]
+//extern crate std;
+
+//use non_std::prelude::*;
+
 // The macro for our start-up function
 use rp_pico::entry;
 
@@ -43,6 +49,11 @@ use ws2812_pio::Ws2812;
 // Currently 3 consecutive LEDs are driven by this example
 // to keep the power draw compatible with USB:
 const STRIP_LEN: usize = 25; // number of LEDs
+
+// experiment with a vector of functions
+// 
+fn f2(i: i32) -> i32 { i * 2 }
+fn f3(i: i32) -> i32 { i * 3 }
 
 #[entry]
 fn main() -> ! {
@@ -118,7 +129,13 @@ fn main() -> ! {
 
     // Slow down timer by this factor (0.1 will result in 10 seconds):
     let animation_speed = 0.1;
-
+/*
+    // experiment
+    let arr: Vec<&dyn Fn(i32) -> i32> = vec![&f2, &f3];
+    for f in &arr {
+      (f)(1);
+    }
+*/ 
     loop {
         for (i, led) in leds.iter_mut().enumerate() {
             // An offset to give 3 consecutive LEDs a different color:
