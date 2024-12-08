@@ -94,7 +94,8 @@ fn main() -> ! {
     // Ws2812 can use it:
     let (mut pio, sm0, _, _, _) = pac.PIO0.split(&mut pac.RESETS);
 
-    // Instanciate a Ws2812 LED strip:
+    // Instanciate a Ws2812 LED strip
+    // GPIO27 is the data input to the LEDs of WS2812B-2020
     let mut ws = Ws2812::new(
         pins.gpio27.into_function(),
         &mut pio,
