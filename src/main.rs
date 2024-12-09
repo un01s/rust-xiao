@@ -144,8 +144,8 @@ fn main() -> ! {
       func();
     }
 */
-    
-    let pattern1 = || -> i32 {
+/*    
+    let pattern1 = |leds: mut [RGB8; STRIP_LEN], t: mut f32| -> i32 {
       for (i, led) in leds.iter_mut().enumerate() {
         // An offset to give 3 consecutive LEDs a different color:
         let hue_offs: f32 = match i % 25 {
@@ -180,7 +180,7 @@ fn main() -> ! {
       let n = 0;
       n
     };
- 
+*/ 
     loop {
         
         for (i, led) in leds.iter_mut().enumerate() {
@@ -214,7 +214,7 @@ fn main() -> ! {
             *led = rgb.into();
         }
         
-        //pattern1();
+        //pattern1(leds, t);
 
         // Here the magic happens and the `leds` buffer is written to the
         // ws2812 LEDs:
