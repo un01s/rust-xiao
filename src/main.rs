@@ -112,7 +112,7 @@ fn main() -> ! {
 
     let mut leds: [RGB8; STRIP_LEN] = [(0, 0, 0).into(); STRIP_LEN];
     let mut t: f32 = 0.0;
-    let mut hue_offs: f32 = 0.0;
+    let mut hue_offs: f32;
 
     // Bring down the overall brightness of the strip to not blow
     // the USB power supply: every LED draws ~60mA, RGB means 3 LEDs per
