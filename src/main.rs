@@ -156,28 +156,32 @@ fn main() -> ! {
                 _ => 0.05,
               };
             } else {
-              hue_offs = match i % 25 {
-                0 => 0.0,
-                1 => 0.2,
-                2 => 0.2,
-                3 => 0.2,
-                4 => 0.2,
-                5 => 0.2,
-                6 => 0.2,
-                _ => 0.3,
-              };
+              hue_offs = (i/25) as f32;
+
+              if fcnt > 3000 {
+                fcnt = 0;
+              }
             }
 
-            let sin_11 = sin((t + hue_offs) * 2.0 * core::f32::consts::PI);
-            // Bring -1..1 sine range to 0..1 range:
-            let sin_01 = (sin_11 + 1.0) * 0.5;
+            if fcnt == 0 {
+              let hue = 360.0 * hue_offs;
+              let sat = 1.0;
+              let val = 1.0;
 
-            let hue = 360.0 * sin_01;
-            let sat = 1.0;
-            let val = 1.0;
+              let rgb = hsv2rgb_u8(hue, sat, val);
+              *led = rgb.into();
+            } else {
+              let sin_11 = sin((t + hue_offs) * 2.0 * core::f32::consts::PI);
+              // Bring -1..1 sine range to 0..1 range:
+              let sin_01 = (sin_11 + 1.0) * 0.5;
 
-            let rgb = hsv2rgb_u8(hue, sat, val);
-            *led = rgb.into();
+              let hue = 360.0 * sin_01;
+              let sat = 1.0;
+              let val = 1.0;
+
+              let rgb = hsv2rgb_u8(hue, sat, val);
+              *led = rgb.into();
+            }
         }
         
         //pattern1(leds, t);
