@@ -155,7 +155,7 @@ fn main() -> ! {
                 24 => 0.2,
                 _ => 0.05,
               };
-            } else if fcnt > 2000 && fcnt <= 3000 {
+            } else if fcnt > 2000 && fcnt <= 4000 {
               hue_offs = match i % 25 {
                 0 => 0.0,
                 1 => 0.053,
@@ -181,7 +181,7 @@ fn main() -> ! {
             } else {
               hue_offs = (i/25) as f32;
 
-              if fcnt > 4000 {
+              if fcnt > 5000 {
                 fcnt = 0;
               }
             }
