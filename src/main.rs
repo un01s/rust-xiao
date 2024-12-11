@@ -50,13 +50,6 @@ use ws2812_pio::Ws2812;
 // to keep the power draw compatible with USB:
 const STRIP_LEN: usize = 25; // number of LEDs
 
-/*
-// experiment with a vector of functions
-// 
-fn f2(i: i32) -> i32 { i * 2 }
-fn f3(i: i32) -> i32 { i * 3 }
-*/
-
 #[entry]
 fn main() -> ! {
     // Grab our singleton objects
@@ -131,58 +124,10 @@ fn main() -> ! {
 
     // Slow down timer by this factor (0.1 will result in 10 seconds):
     let animation_speed = 0.1;
-/*
-    // experiment
-    let arr: Vec<&dyn Fn(i32) -> i32> = vec![&f2, &f3];
-    for f in &arr {
-      (f)(1);
-    }
 
-    // define a generic type constrained to one of the closure traits:
-    // FnOnce(), FnMut, or Fn
-    fn thing_to_do<F: FnOnce()>(func: F) {
-      func();
-    }
-*/
-/*    
-    let pattern1 = |leds: mut [RGB8; STRIP_LEN], t: mut f32| -> i32 {
-      for (i, led) in leds.iter_mut().enumerate() {
-        // An offset to give 3 consecutive LEDs a different color:
-        let hue_offs: f32 = match i % 25 {
-          0 => 0.0,
-          1 => 0.1,
-          2 => 0.1,
-          3 => 0.1,
-          4 => 0.1,
-          5 => 0.1,
-          6 => 0.1,
-          9 => 0.2,
-          12 => 0.2,
-          15 => 0.2,
-          18 => 0.2,
-          21 => 0.2,
-          24 => 0.2,
-          _ => 0.05,
-        };
-
-        let sin_11 = sin((t + hue_offs) * 2.0 * core::f32::consts::PI);
-        // Bring -1..1 sine range to 0..1 range:
-        let sin_01 = (sin_11 + 1.0) * 0.5;
-        
-        let hue = 360.0 * sin_01;
-        let sat = 1.0;
-        let val = 1.0;
-
-        let rgb = hsv2rgb_u8(hue, sat, val);
-        *led = rgb.into();
-      }
-
-      let n = 0;
-      n
-    };
-*/ 
+    let mut fcnt = 0;
     loop {
-        
+        fcnt += 1;
         for (i, led) in leds.iter_mut().enumerate() {
             // An offset to give 3 consecutive LEDs a different color:
             let hue_offs = match i % 25 {
