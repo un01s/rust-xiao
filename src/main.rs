@@ -112,9 +112,7 @@ fn main() -> ! {
 
     let mut leds: [RGB8; STRIP_LEN] = [(0, 0, 0).into(); STRIP_LEN];
     let mut t: f32 = 0.0;
-
-    // example code has 3 LEDs
-    // now we are using 25 LEDs in snawflake
+    let mut hue_offs: f32 = 0.0;
 
     // Bring down the overall brightness of the strip to not blow
     // the USB power supply: every LED draws ~60mA, RGB means 3 LEDs per
@@ -128,9 +126,20 @@ fn main() -> ! {
     let mut fcnt = 0;
     loop {
         fcnt += 1;
+
         for (i, led) in leds.iter_mut().enumerate() {
-            // An offset to give 3 consecutive LEDs a different color:
-            let hue_offs = match i % 25 {
+            if fcnt > 0 && fcnt <= 1000 {
+              hue_offs = match i % 25 {
+                1 => 0.2,
+                2 => 0.2,
+                3 => 0.2,
+                4 => 0.2,
+                5 => 0.2,
+                6 => 0.2,
+                _ => 0.5,
+              };
+            } else if fcnt > 1000 && fcnt <= 2000 {
+              hue_offs = match i % 25 {
                 0 => 0.0,
                 1 => 0.1,
                 2 => 0.1,
@@ -145,7 +154,19 @@ fn main() -> ! {
                 21 => 0.2,
                 24 => 0.2,
                 _ => 0.05,
-            };
+              };
+            } else {
+              hue_offs = match i % 25 {
+                0 => 0.0,
+                1 => 0.2,
+                2 => 0.2,
+                3 => 0.2,
+                4 => 0.2,
+                5 => 0.2,
+                6 => 0.2,
+                _ => 0.3,
+              };
+            }
 
             let sin_11 = sin((t + hue_offs) * 2.0 * core::f32::consts::PI);
             // Bring -1..1 sine range to 0..1 range:
