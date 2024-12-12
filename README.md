@@ -1,5 +1,7 @@
 # rust and XIAO RP2040
 
+Current code is customized for snowflake.
+
 ## 1. setup
 
 ```
