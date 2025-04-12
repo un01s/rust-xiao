@@ -48,7 +48,10 @@ use ws2812_pio::Ws2812;
 
 // Currently 3 consecutive LEDs are driven by this example
 // to keep the power draw compatible with USB:
-const STRIP_LEN: usize = 25; // number of LEDs
+const STRIP_LEN: usize = 39; // number of LEDs
+// 25 for snowflake
+// 39 for xinfa
+// 65 for SF
 
 #[entry]
 fn main() -> ! {
@@ -129,7 +132,7 @@ fn main() -> ! {
 
         for (i, led) in leds.iter_mut().enumerate() {
             if fcnt > 0 && fcnt <= 1000 {
-              hue_offs = match i % 25 {
+              hue_offs = match i % STRIP_LEN {
                 1 => 0.2,
                 2 => 0.2,
                 3 => 0.2,
@@ -139,7 +142,7 @@ fn main() -> ! {
                 _ => 0.5,
               };
             } else if fcnt > 1000 && fcnt <= 2000 {
-              hue_offs = match i % 25 {
+              hue_offs = match i % STRIP_LEN {
                 0 => 0.0,
                 1 => 0.1,
                 2 => 0.1,
@@ -156,7 +159,7 @@ fn main() -> ! {
                 _ => 0.05,
               };
             } else if fcnt > 2000 && fcnt <= 4000 {
-              hue_offs = match i % 25 {
+              hue_offs = match i % STRIP_LEN {
                 0 => 0.0,
                 1 => 0.053,
                 2 => 0.106,
@@ -179,7 +182,7 @@ fn main() -> ! {
                 _ => 1.0,
               };
             } else if fcnt > 4000 && fcnt <= 6000 {
-              hue_offs = match i % 25 {
+              hue_offs = match i % STRIP_LEN {
                 0 => 0.083,
                 7 => 0.083,
                 8 => 0.083,
