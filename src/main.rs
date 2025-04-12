@@ -126,7 +126,23 @@ fn main() -> ! {
 
     // Slow down timer by this factor (0.1 will result in 10 seconds):
     let animation_speed = 0.1;
-
+/*
+    let strokes: [Box<[u8]>; 9] = [
+      Box::new([0, 2]),
+      Box::new([5, 6, 11]),
+      Box::new([4, 7, 10, 13, 12, 14, 15, 9, 8]),
+      Box::new([1, 3]),
+      Box::new([17, 18]),
+      Box::new([23, 24]),
+      Box::new([28, 23, 16, 25]),
+      Box::new([22, 21, 20]),
+      Box::new([25, 33, 34]),
+      Box::new([16, 19, 21, 32]),
+      Box::new([31, 30, 29]),
+      Box::new([29, 38, 36]),
+      Box::new([35, 36, 37]),
+    ];
+*/ 
     let mut fcnt = 0;
     loop {
         fcnt += 1;
