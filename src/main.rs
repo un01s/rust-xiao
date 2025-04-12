@@ -2,7 +2,8 @@
 //! # 2nd LED fading effect 
 //! # 3rd WS2812 LED from pico XIAO
 //! # 4th try smart led effects
-//!
+//! # 5th xinfa 
+//! 1. strokes, 2. rainbow from start to end, rainbow for all simultaneously
 
 #![no_std]
 #![no_main]
@@ -133,52 +134,25 @@ fn main() -> ! {
         for (i, led) in leds.iter_mut().enumerate() {
             if fcnt > 0 && fcnt <= 1000 {
               hue_offs = match i % STRIP_LEN {
-                1 => 0.2,
-                2 => 0.2,
-                3 => 0.2,
-                4 => 0.2,
-                5 => 0.2,
-                6 => 0.2,
+                0..16 => 0.2,
                 _ => 0.5,
               };
             } else if fcnt > 1000 && fcnt <= 2000 {
               hue_offs = match i % STRIP_LEN {
                 0 => 0.0,
+                2 => 0.0,
                 1 => 0.1,
-                2 => 0.1,
                 3 => 0.1,
-                4 => 0.1,
-                5 => 0.1,
-                6 => 0.1,
-                9 => 0.2,
-                12 => 0.2,
-                15 => 0.2,
-                18 => 0.2,
-                21 => 0.2,
-                24 => 0.2,
-                _ => 0.05,
+                5 => 0.2,
+                6 => 0.2,
+                11 => 0.2,
+                _ => 0.3,
               };
             } else if fcnt > 2000 && fcnt <= 4000 {
               hue_offs = match i % STRIP_LEN {
-                0 => 0.0,
-                1 => 0.053,
-                2 => 0.106,
-                3 => 0.159,
-                4 => 0.212,
-                5 => 0.265,
-                6 => 0.318,
-                9 => 0.371,
-                12 => 0.424,
-                15 => 0.477,
-                18 => 0.53,
-                21 => 0.583,
-                24 => 0.636,
-                8 => 0.689,
-                11 => 0.742,
-                14 => 0.795,
-                17 => 0.848,
-                20 => 0.901,
-                23 => 0.954,
+                17..19 => 0.05,
+                23..25 => 0.1,
+                25..29 => 0.15,
                 _ => 1.0,
               };
             } else if fcnt > 4000 && fcnt <= 6000 {
