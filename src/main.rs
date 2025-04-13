@@ -142,7 +142,14 @@ fn main() -> ! {
       Box::new([29, 38, 36]),
       Box::new([35, 36, 37]),
     ];
-*/ 
+*/
+    let stroke_map: [u8; 42] = [
+      0, 2, 5, 6, 11, 4, 7, 10, 13, 12, 
+      14, 15, 9, 8, 1, 3, 17, 18, 23, 24, 
+      28, 23, 16, 25, 22, 21, 20, 25, 33, 34, 
+      16, 19, 21, 32, 31, 30, 29, 38, 36, 35, 
+      36, 37];
+ 
     let mut fcnt = 0;
     loop {
         fcnt += 1;
@@ -176,15 +183,16 @@ fn main() -> ! {
               };
             } else if fcnt > 2000 && fcnt <= 4000 {
               hue_offs = match i % STRIP_LEN {
-                17..19 => 0.03,
-                23..25 => 0.06,
-                25..29 => 0.12,
-                20..23 => 0.15,
-                33..35 => 0.18,
-                29..32 => 0.21,
-                38 => 0.21,
-                35..38 => 0.24,
-                _ => 0.27,
+                0..17 => 0.01,
+                17..19 => 0.02,
+                20..23 => 0.05,
+                23..25 => 0.03,
+                25..29 => 0.04,
+                29..32 => 0.07,
+                33..35 => 0.06,
+                35..38 => 0.08,
+                38 => 0.07,
+                _ => 0.09,
               };
             } else if fcnt > 4000 && fcnt <= 6000 {
               hue_offs = match i % STRIP_LEN {
@@ -266,7 +274,7 @@ fn main() -> ! {
             .unwrap();
 
         // Wait a bit until calculating the next frame:
-        frame_delay.delay_ms(16); // ~60 FPS
+        frame_delay.delay_ms(12); // 16 = ~60 FPS
 
         // Increase the time counter variable and make sure it
         // stays inbetween 0.0 to 1.0 range:
