@@ -159,7 +159,7 @@ fn main() -> ! {
             if fcnt > 0 && fcnt <= 2000 {
               hue_offs = match i % STRIP_LEN {
                 0..16 => 0.1,
-                _ => 0.2,
+                _ => 0.05,
               };
             } else if fcnt > 2000 && fcnt <= 4000 {
               hue_offs = match i % STRIP_LEN {
@@ -242,7 +242,7 @@ fn main() -> ! {
               let x = stroke_map[pcnt];
               hue_offs = match i % STRIP_LEN {
                 x => 0.05,
-                _ => 0.5,
+                _ => 0.1,
               };
               pcnt += 1;
               pcnt = pcnt%42;
