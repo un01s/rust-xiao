@@ -151,16 +151,17 @@ fn main() -> ! {
       36, 37];
  
     let mut fcnt = 0;
+    let mut pcnt = 0;
     loop {
         fcnt += 1;
 
         for (i, led) in leds.iter_mut().enumerate() {
-            if fcnt > 0 && fcnt <= 1000 {
+            if fcnt > 0 && fcnt <= 2000 {
               hue_offs = match i % STRIP_LEN {
                 0..16 => 0.1,
                 _ => 0.2,
               };
-            } else if fcnt > 1000 && fcnt <= 2000 {
+            } else if fcnt > 2000 && fcnt <= 4000 {
               hue_offs = match i % STRIP_LEN {
                 0 => 0.0,
                 2 => 0.0,
@@ -181,7 +182,7 @@ fn main() -> ! {
                 
                 _ => 0.2,
               };
-            } else if fcnt > 2000 && fcnt <= 4000 {
+            } else if fcnt > 4000 && fcnt <= 6000 {
               hue_offs = match i % STRIP_LEN {
                 0..17 => 0.01,
                 17..19 => 0.02,
@@ -194,7 +195,7 @@ fn main() -> ! {
                 38 => 0.07,
                 _ => 0.09,
               };
-            } else if fcnt > 4000 && fcnt <= 6000 {
+            } else if fcnt > 6000 && fcnt <= 8000 {
               hue_offs = match i % STRIP_LEN {
                 0 => 0.0,
                 2 => 0.025,
@@ -237,10 +238,18 @@ fn main() -> ! {
                 38 => 0.95,
                 _ => 0.975,
               };
+            } else if fcnt > 8000 && fcnt <= 10000 {
+              let x = stroke_map[pcnt];
+              hue_offs = match i % STRIP_LEN {
+                x => 0.05,
+                _ => 0.5,
+              };
+              pcnt += 1;
+              pcnt = pcnt%42;
             } else {
               hue_offs = (i/40) as f32;
 
-              if fcnt > 7000 {
+              if fcnt > 12000 {
                 fcnt = 0;
               }
             }
